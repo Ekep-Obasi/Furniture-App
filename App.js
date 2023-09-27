@@ -8,7 +8,6 @@ import { useCallback } from "react";
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-
   const [fontsLoaded] = useFonts({
     light: require("./assets/fonts/Poppins-Light.ttf"),
     regular: require("./assets/fonts/Poppins-Regular.ttf"),
@@ -19,18 +18,21 @@ export default function App() {
   });
 
   // after custom fonts have been loaded we hide the splash screen and show the app screen
-  const onLayoutRootView = useCallback(async() => {
-    if(fontsLoaded) {
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
       await SplashScreen.hideAsync();
     }
-  }, [fontsLoaded])
+  }, [fontsLoaded]);
 
-
-  if(!fontsLoaded) return null;
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={styles.container} onLayout={onLayoutRootView}>
+      <Text style={styles.textStyle}>
+        Open up App.js to start working on your app!
+      </Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -42,5 +44,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  textStyle: {
+    fontFamily: "bold",
   },
 });
