@@ -1,5 +1,4 @@
 import { View, StyleSheet } from "react-native";
-import React from "react";
 import { SliderBox } from "react-native-image-slider-box";
 import { COLORS } from "../../constants";
 
