@@ -7,7 +7,7 @@ import BottomTabNavigation from "./navigation/BottomTabNavigation";
 import { Cart } from "./screens";
 
 // prevents Splash screen from auto hiding while fonts are loaded
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -27,9 +27,9 @@ export default function App() {
     }
   }, [fontsLoaded]);
 
-  if (!fontsLoaded) {
-    return null;
-  }
+  // if (!fontsLoaded) {
+  //   return null;
+  // }
 
   return (
     <NavigationContainer>
